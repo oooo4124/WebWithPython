@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#alert-success").hide();
+        $("#alert-danger").hide();
+        $("input").keyup(function(){
+            var pw1=$("#pw1").val();
+            var pw2=$("#pw2").val();
+            if(pw1 != "" || pw2 != ""){
+                if(pw1 == pw2){
+                    $("#alert-success").show();
+                    $("#alert-danger").hide();
+                    $("#submit").removeAttr("disabled");
+                }else{
+                	if(pw2 != ""){
+                    $("#alert-success").hide();
+                    $("#alert-danger").show();
+                    $("#submit").attr("disabled", "disabled");
+                	} else{
+                		$("#alert-success").hide();
+                        $("#alert-danger").hide();
+                	}
+                }    
+            }
+        });
+    });
+</script>
+
+	<link rel="stylesheet" href="assets/css/main.css" />
+<meta charset="EUC-KR" content = "no-cache">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="index.jsp">메인</a></li>
+					<li><a href="#one">온오프라인 분석</a></li>
+					<li><a href="#two">부가기능</a></li>
+					<li><a href="#three">로그인</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+<div id="wrapper">
+	<section class="wrapper style1 fullscreen">
+		<div class="inner">
+			<h2>회원가입</h2>
+			<div class="style1">
+				<section>
+					<form method="post" action="../Join">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="id" id = "id" placeholder="ID"> 
+								<br>
+							</div>
+							<div class="field half">
+								<input type="password" name="pw" id='pw1' placeholder="비밀번호"> 
+								<br>
+							</div>
+							<div class="field half">
+								<input type="password" name="pw_check" id='pw2' placeholder="비밀번호 확인">
+								<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+								<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>	
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="name" placeholder="이름"> 
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="hp" placeholder="연락처"> 
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="email" placeholder="EMAIL"> 
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="adr" placeholder="주소"> 
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="chief" placeholder="업체 대표자 이름">
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="corp_name" placeholder="업체 이름">
+								<br>
+							</div>
+							<div class="field half">
+								<input type="text" name="corp_adr" placeholder="업체 주소">
+								<br>
+							</div>
+							<div class="field">
+								<input type="submit" value="회원가입">
+							</div>
+						</div>
+					</form>
+					
+				</section>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

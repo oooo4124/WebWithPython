@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+#pdf_wrap {
+  background-color:black;
+  text-align:center;
+}
+
+#pdf_wrap > h1 {
+  color:blue;
+}
+
+#pdf_wrap > h2 {
+  color:yellow;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+<script>
+$(document).ready(function(){
+
+	//pdf 다운로드 	
+	$("#pdfDownloader").click(function(){
+	
+        html2canvas(document.getElementById("printDiv"), {
+            onrendered: function(canvas) {
+
+                var imgData = canvas.toDataURL('image/png');
+                console.log('Report Image URL: '+imgData);
+                var doc = new jsPDF('p', 'mm', [297, 210]); //210mm wide and 297mm high
+                
+                doc.addImage(imgData, 'PNG', 10, 10);
+                doc.save('sample.pdf');
+            }
+        });
+
+	});
+	
+})
+</script>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<button type="button" id="pdfDownloader">Download</button>
+<div id="printDiv">
+  <h2>Hello World</h2>
+  <p>
+    this content will be printed.
+  </p>
+</div>
+
+</body>
+</html>
