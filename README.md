@@ -4,6 +4,7 @@
 
 CSS는 html5up의 템플릿을 활용하였습니다.
 ![123](https://user-images.githubusercontent.com/58044435/148678636-c8c377df-76a6-4229-bf3c-e0ceb556dbfd.PNG)
+![image](https://user-images.githubusercontent.com/58044435/148678679-e5928b86-4a37-403d-a916-2c44df7f7d49.png)
 
 
 개발에 사용한 기술스택 
